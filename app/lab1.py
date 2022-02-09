@@ -10,6 +10,8 @@ artefacts_dir = os.path.abspath(os.path.join(script_dir, '../', 'artefacts'))
 def generate_file(alphabet, filename, count) -> None:
     weights = list(alphabet.values())
     letters = list(alphabet.keys())
+    if not os.path.exists(artefacts_dir):
+        os.makedirs(artefacts_dir)
     with open(filename, 'w') as file:
         for i in range(count):
             file.write(''.join(random.choices(letters, weights)))
